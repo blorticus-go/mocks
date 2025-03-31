@@ -1,5 +1,5 @@
-// Package mock provides mock objects that can be used to make golang testing easier.
-package mock
+// Package mocks provides mock objects that can be used to make golang testing easier.
+package mocks
 
 import "io"
 

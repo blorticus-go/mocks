@@ -1,16 +1,4 @@
-# mocks
-
-Simple mocks for a set of built-in interfaces.
-
-## Overview
-
-Currently, the following mock is implemented:
-* `mock.Reader`: simulates an `io.Reader`
-
-## Examples
-
-```go
-package mypackage_test
+package mocks_test
 
 import (
 	"fmt"
@@ -70,4 +58,3 @@ func testARead(reader io.Reader, expectEOF bool, expectError bool, expectedReadB
 
 	return nil
 }
-```

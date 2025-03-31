@@ -1,4 +1,4 @@
-package mock_test
+package mocks_test
 
 import (
 	"bytes"
@@ -6,11 +6,11 @@ import (
 	"io"
 	"testing"
 
-	"github.com/blorticus/go-test-mocks"
+	mocks "github.com/blorticus-go/mocks"
 )
 
 func TestReader(t *testing.T) {
-	reader := mock.NewReader().
+	reader := mocks.NewReader().
 		AddGoodRead([]byte("first good read")).
 		AddEmptyRead().
 		AddGoodRead([]byte("second good read\n now with a newline!")).
@@ -41,7 +41,7 @@ func TestReader(t *testing.T) {
 		t.Errorf("(reader) (test 1: sixth read) %s", err.Error())
 	}
 
-	reader = mock.NewReader().
+	reader = mocks.NewReader().
 		AddGoodRead([]byte("first good read")).
 		AddEmptyRead().
 		AddError(fmt.Errorf("error")).
@@ -71,7 +71,7 @@ func TestReader(t *testing.T) {
 
 var incomingBuffer []byte = make([]byte, 9000)
 
-func expectOnRead(reader *mock.Reader, expectedNumberOfBytesRead int, expectedBytes []byte, expectAnError bool, expectEOF bool) error {
+func expectOnRead(reader *mocks.Reader, expectedNumberOfBytesRead int, expectedBytes []byte, expectAnError bool, expectEOF bool) error {
 	numberOfBytesRead, err := reader.Read(incomingBuffer)
 
 	if err != nil {
